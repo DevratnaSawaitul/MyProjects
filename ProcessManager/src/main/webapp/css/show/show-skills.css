@@ -1,0 +1,120 @@
+/* Styling for the action buttons */
+.action-btn {
+    cursor: pointer;
+    padding: 5px 10px;
+    border: none;
+    font-size: 16px; /* Adjusted font size */
+    margin: 0 3px;  /* Reduced margin */
+    display: inline-block;
+    border-radius: 4px;
+}
+
+.edit-btn {
+    color: #3498db; /* Blue */
+}
+
+.delete-btn {
+    color: #e74c3c; /* Red */
+}
+
+.edit-btn:hover {
+    color: #2980b9;
+}
+
+.delete-btn:hover {
+    color: #c0392b;
+}
+
+/* Table Container */
+.table-container-skills {
+    overflow-x: auto;
+    margin-top: 20px;
+    background-color: white;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Table Styling */
+.skills-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+}
+
+.skills-table th,
+.skills-table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+}
+
+.skills-table th {
+    background-color: #34495e;
+    color: white;
+    font-weight: bold;
+}
+
+.skills-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.skills-table tr:hover {
+    background-color: #ddd;
+}
+
+.skills-table td {
+    color: #2c3e50;
+    font-weight: 400;
+}
+
+/* Shrink action column to fit buttons */
+.skills-table th:last-child,
+.skills-table td:last-child {
+    width: 120px; /* Adjusted width */
+    text-align: center;
+    white-space: nowrap; /* Prevents wrapping */
+}
+
+/* Style buttons to fit properly */
+.action-btn {
+    border: none;
+    padding: 5px 8px;
+    font-size: 15px; /* Font size to ensure buttons are compact */
+    cursor: pointer;
+    font-style: bold;
+    border-radius: 4px;
+}
+
+.action-btn:hover {
+    background-color: #c0c0c0;
+}
+
+/* Header container with title and button */
+.skills-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Ensures vertical alignment of title and button */
+    margin-bottom: 20px;
+    padding: 5px 0;  /* Adds vertical padding for spacing */
+}
+
+.skills-header h2 {
+    margin: 0;  /* Removes default margin around the title */
+    font-size: 24px;  /* Optional: Adjusts the font size for better alignment */
+}
+
+.add-skill-btn {
+    background-color: #3498db; /* Blue */
+    color: white;
+    padding: 8px 15px;
+    font-size: 14px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    align-self: center; /* Ensures the button aligns vertically */
+}
+
+.add-skill-btn:hover {
+    background-color: #2980b9;
+}

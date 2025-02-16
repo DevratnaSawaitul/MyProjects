@@ -1,0 +1,15 @@
+.main-content h2 {
+    margin-bottom: 20px;
+}
+
+.sheet-details {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.sheet-details h3 {
+    margin-bottom: 10px;
+}

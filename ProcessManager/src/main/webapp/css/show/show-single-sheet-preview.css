@@ -1,0 +1,99 @@
+/* Modal Styling */
+#show-single-sheet-preview-modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    width: 80%;
+    max-height: 90vh;
+    overflow-y: auto;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Show modal when class is added */
+#show-single-sheet-preview-modal.show {
+    display: block;
+}
+
+/* Header */
+.preview-header {
+    background: #34495e;
+    color: white;
+    padding: 15px;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    position: relative;
+}
+
+/* Sticky Close Button */
+.close-btn {
+    position: fixed;
+    top: 15px;
+    right: 20px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: white;
+    cursor: pointer;
+    z-index: 1100;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 5px 10px;
+    border-radius: 50%;
+}
+
+.close-btn:hover {
+    color: red;
+    background: rgba(0, 0, 0, 0.7);
+}
+
+/* Body */
+.preview-body {
+    padding: 20px;
+    max-height: 75vh;
+    overflow-y: auto;
+}
+
+/* Process Section */
+.process-section {
+    background: #f4f4f4;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+/* Table Styling */
+.step-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.step-table th, .step-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.step-table th {
+    background: #2c3e50;
+    color: white;
+}
+
+/* Long Instruction Handling */
+.instruction-cell {
+    max-width: 400px;
+    word-wrap: break-word;
+}
+
+/* Step Image */
+.step-image {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 5px;
+}

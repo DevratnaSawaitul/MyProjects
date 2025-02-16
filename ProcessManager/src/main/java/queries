@@ -1,0 +1,113 @@
+CREATE TABLE tools (
+    tool_id SERIAL PRIMARY KEY,
+    tool_name CHARACTER VARYING NOT NULL,
+    sub_process CHARACTER VARYING NOT NULL DEFAULT '', 
+    active BOOLEAN NOT NULL DEFAULT TRUE
+);
+
+CREATE TABLE process (
+    process_id SERIAL PRIMARY KEY,
+    process_name CHARACTER VARYING NOT NULL UNIQUE,
+    active BOOLEAN NOT NULL DEFAULT TRUE
+);
+
+CREATE TABLE skills (
+    skill_id SERIAL PRIMARY KEY,
+    skill_name CHARACTER VARYING NOT NULL,
+    active BOOLEAN NOT NULL DEFAULT TRUE
+);
+
+CREATE TABLE subprocesses (
+    subprocess_id SERIAL PRIMARY KEY,
+    process_name CHARACTER VARYING NOT NULL,  
+    subprocess_name CHARACTER VARYING NOT NULL,
+    active BOOLEAN NOT NULL DEFAULT TRUE
+);
+
+CREATE TABLE sheets (
+    sheet_id SERIAL PRIMARY KEY,
+    file_name CHARACTER VARYING NOT NULL,
+    version CHARACTER VARYING NOT NULL,
+    date CHARACTER VARYING NOT NULL, 
+    department CHARACTER VARYING NOT NULL,
+    design_no CHARACTER VARYING NOT NULL,
+    floor CHARACTER VARYING NOT NULL,
+    date_of_last_update CHARACTER VARYING NOT NULL, 
+    last_updated_by CHARACTER VARYING NOT NULL,
+	active BOOLEAN NOT NULL DEFAULT FALSE
+);
+
+CREATE TABLE sheet_process (
+    sheet_process_id SERIAL PRIMARY KEY,
+    file_name CHARACTER VARYING NOT NULL,
+    process_name CHARACTER VARYING NOT NULL
+);
+
+CREATE TABLE steps (
+    step_id SERIAL PRIMARY KEY,
+    file_name CHARACTER VARYING NOT NULL,  
+    process_name CHARACTER VARYING NOT NULL DEFAULT '', 
+    subprocess_name CHARACTER VARYING NOT NULL DEFAULT '',  
+    step_number INT NOT NULL,
+    tool_name CHARACTER VARYING NOT NULL DEFAULT '',
+    tool_spec CHARACTER VARYING NOT NULL DEFAULT '',
+    special_instruction TEXT NOT NULL DEFAULT '',
+    skill CHARACTER VARYING NOT NULL DEFAULT '',
+    time_minutes INT NOT NULL,
+    image_url TEXT DEFAULT '',
+	sheet_process_id BIGINT
+);
+
+CREATE TABLE system_settings (
+    id SERIAL PRIMARY KEY,
+    key CHARACTER VARYING NOT NULL UNIQUE,
+    value CHARACTER VARYING NOT NULL
+);
+
+INSERT INTO system_settings ("key", "value") VALUES ('username', 'superadmin');
+INSERT INTO system_settings ("key", "value") VALUES ('password', 'Admin@123');
+
+-- Add index for tools table
+CREATE INDEX idx_tool_name ON tools (tool_name);
+CREATE INDEX idx_sub_process ON tools (sub_process);
+CREATE INDEX idx_active_tool ON tools (active);
+
+-- Add index for process table
+CREATE INDEX idx_process_name ON process (process_name);
+CREATE INDEX idx_active_process ON process (active);
+
+-- Add index for skills table
+CREATE INDEX idx_skill_name ON skills (skill_name);
+CREATE INDEX idx_active_skill ON skills (active);
+
+-- Add index for subprocesses table
+CREATE INDEX idx_process_name_subprocess ON subprocesses (process_name);
+CREATE INDEX idx_subprocess_name ON subprocesses (subprocess_name);
+CREATE INDEX idx_active_subprocess ON subprocesses (active);
+
+-- Add index for sheets table
+CREATE INDEX idx_file_name ON sheets (file_name);
+CREATE INDEX idx_version ON sheets (version);
+CREATE INDEX idx_date ON sheets (date);
+CREATE INDEX idx_department ON sheets (department);
+CREATE INDEX idx_design_no ON sheets (design_no);
+CREATE INDEX idx_floor ON sheets (floor);
+CREATE INDEX idx_date_of_last_update ON sheets (date_of_last_update);
+CREATE INDEX idx_last_updated_by ON sheets (last_updated_by);
+
+-- Add index for sheet_process table
+CREATE INDEX idx_file_name_process_name ON sheet_process (file_name, process_name);
+
+-- Add index for steps table
+CREATE INDEX idx_file_name_process_name_subprocess_name ON steps (file_name, process_name, subprocess_name);
+CREATE INDEX idx_step_number ON steps (step_number);
+CREATE INDEX idx_tool_name_step ON steps (tool_name);
+CREATE INDEX idx_skill ON steps (skill);
+CREATE INDEX idx_time_minutes ON steps (time_minutes);
+CREATE INDEX idx_sheet_process_id ON steps (sheet_process_id);
+
+-- Add index for system_settings table
+CREATE INDEX idx_key ON system_settings (key);
+CREATE INDEX idx_value ON system_settings (value);
+
+-- process_management_system

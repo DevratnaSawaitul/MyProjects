@@ -1,0 +1,250 @@
+/* ---------- Main Content for Existing Sheets ---------- */
+.main-content-existing-sheet {
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* ---------- Sheet Header ---------- */
+.sheet-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding: 5px 0;
+}
+
+.sheet-header h2 {
+  margin: 0;
+  font-size: 24px;
+}
+
+/* ---------- Header Actions ---------- */
+.header-actions {
+  display: flex;
+  align-items: center;
+}
+
+/* ---------- Filter Container ---------- */
+.filter-container {
+  position: relative;
+}
+
+/* Place the filter-toggle button immediately next to the add-sheet button */
+.filter-toggle-btn {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+/* ---------- Filter Panel Styling ---------- */
+.filter-panel {
+  display: none; /* Hidden by default */
+  position: absolute;
+  top: 35px;
+  right: 0;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  padding: 10px;
+  border-radius: 4px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  z-index: 10;
+  min-width: 300px;
+}
+
+/* Layout filter panel content in one row */
+.filter-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.date-inputs,
+.search-input,
+.filter-buttons {
+  display: flex;
+  align-items: center;
+}
+
+.date-inputs label,
+.search-input label {
+  margin-right: 5px;
+  font-size: 14px;
+  color: gray;
+}
+
+/* Remove border from date inputs, add padding, background and margin */
+#from, #to {
+  border: none;
+  outline: none;
+  font-size: 14px;
+  padding: 4px;
+  background-color: #f1f1f1;
+  border-radius: 3px;
+  margin-right: 10px;
+}
+
+/* Style search input field with its own border and padding */
+.search-input input[type="text"] {
+  border: 1px solid #ccc;
+  padding: 4px 8px;
+  border-radius: 3px;
+  font-size: 14px;
+  outline: none;
+  width: 150px;
+  margin-right: 10px;
+}
+
+/* Filter panel buttons styling */
+/* Search button: Green */
+.filter-buttons .search-btn {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  margin-left: 5px;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+/* Clear button: Blue */
+.filter-buttons .clear-filters-btn {
+  background-color: #3498db;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  margin-left: 5px;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+/* Close button: Red; placed immediately to the right of the Clear button */
+.filter-buttons .close-filter-btn {
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  margin-left: 5px;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+/* ---------- Add Sheet Button ---------- */
+.add-sheet-btn {
+  background-color: #3498db;
+  color: white;
+  padding: 8px 15px;
+  font-size: 14px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.add-sheet-btn:hover {
+  background-color: #2980b9;
+}
+
+/* ---------- Table Container ---------- */
+.table-container-existing-sheet {
+  overflow-x: auto;
+  margin-top: 20px;
+  background-color: white;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* ---------- Table Styling ---------- */
+.sheets-table-existing-sheet {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.sheets-table-existing-sheet th,
+.sheets-table-existing-sheet td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: left;
+}
+
+.sheets-table-existing-sheet th {
+  background-color: #34495e;
+  color: white;
+  font-weight: bold;
+}
+
+.sheets-table-existing-sheet tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.sheets-table-existing-sheet tr:hover {
+  background-color: #ddd;
+}
+
+.sheets-table-existing-sheet td {
+  color: #2c3e50;
+  font-weight: 400;
+}
+
+/* Shrink action column */
+.sheets-table-existing-sheet th:last-child,
+.sheets-table-existing-sheet td:last-child {
+  width: 100px;
+  text-align: center;
+  white-space: nowrap;
+}
+
+/* ---------- Action Buttons ---------- */
+.action-btn {
+  cursor: pointer;
+  padding: 5px 8px;
+  font-size: 15px;
+  border-radius: 4px;
+}
+
+.edit-btn {
+  color: #3498db;
+}
+
+.delete-btn {
+  color: #e74c3c;
+}
+
+.edit-btn:hover {
+  color: #2980b9;
+}
+
+.delete-btn:hover {
+  color: #c0392b;
+}
+
+/* ---------- Status Button Styling ---------- */
+.status-btn {
+  border: none;
+  border-radius: 20px;
+  padding: 5px 10px;
+  font-size: 14px;
+  cursor: pointer;
+}
+.status-completed {
+  background-color: #4CAF50;
+  color: white;
+}
+.status-pending {
+  background-color: #e74c3c;
+  color: white;
+}
+
+/* Ensure header-actions layout */
+.header-actions {
+  display: flex;
+  align-items: center;
+}

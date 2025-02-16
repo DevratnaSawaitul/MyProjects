@@ -1,0 +1,438 @@
+http://localhost:8088/ProcessManager/webapi/org/show_tools
+{
+    "load_type": "all"
+}
+{
+    "load_type":"sub_process_related",
+    "sub_process":"Burnishing"
+}
+{
+    "tools": [
+        {
+            "tool_name": "English Burnish",
+            "tool_id": 7,
+            "active": true,
+            "sub_process": "Burnishing"
+        }
+    ],
+    "success": true
+}
+
+http://localhost:8088/ProcessManager/webapi/sheets/showSheets
+{
+    "load_type": "singleSheet",
+    "file_name": "m"
+}
+{
+    "load_type": "all"
+}
+{
+    "sheets": [
+        {
+            "date": "22-01-2025",
+            "last_updated_by": "Admin",
+            "sheet_id": 23,
+            "file_name": "123456789012345",
+            "design_no": "123457",
+            "department": "Dev",
+            "floor": "123456",
+            "date_of_last_update": "22-01-2025 20:49:09",
+            "version": "01"
+        }
+    ],
+    "success": true
+}
+
+http://localhost:8081/ProcessManager/webapi/sheets/recent
+{}
+{
+    "recentSheets": [
+        "123456789012345",
+        "dev"
+    ],
+    "success": "success"
+}
+
+http://localhost:8088/ProcessManager/webapi/org/show_skills
+{
+    "load_type": "all"
+}
+{
+    "load_type":"active"
+}
+{
+    "skills": [
+        {
+            "skill_name": "SK",
+            "active": true,
+            "skill_id": 1
+        }
+    ],
+    "success": true
+}
+
+http://localhost:8088/ProcessManager/webapi/org/show_process
+{
+    "load_type": "all"
+}
+{
+    "load_type":"active"
+}
+{
+    "processes": [
+        {
+            "process_id": 2,
+            "process_name": "Chain Making",
+            "active": true
+        }
+    ],
+    "success": true
+}
+
+http://localhost:8088/ProcessManager/webapi/org/show_sub_process
+{
+    "load_type": "all"
+}
+{
+    "load_type": "active"
+}
+{
+    "load_type":"process_related",
+    "process":"Chain Making"
+}
+{
+    "sub_process": [
+        {
+            "process_name": "Chain Making",
+            "subprocess_id": 4,
+            "active": true,
+            "subprocess_name": "Jumpring Fitting"
+        }
+    ],
+    "success": true
+}
+
+http://localhost:8081/ProcessManager/webapi/org/add_process
+request: 
+{
+    "operation":"add",
+    "process_name":"Testing Process1",
+    "active":true
+}
+{
+    "operation":"update",
+    "process_name":"Testing Process1",
+    "active":false
+}
+
+response:
+{
+    "message": "process_added",
+    "success": true
+}
+{
+    "message": "already_exist",
+    "success": false
+}
+{
+    "message": "process_updated",
+    "success": true
+}
+{
+    "message": "process_name_not_exist",
+    "success": false
+}
+
+http://localhost:8081/ProcessManager/webapi/org/delete_process
+request:
+{
+    "process_id": 4,
+    "process_name": "Testing Process2"
+}
+
+response:
+{
+    "msg": "process_deleted",
+    "success": true
+}
+
+http://localhost:8081/ProcessManager/webapi/org/add_sub_process
+request:
+{
+    "operation":"add",
+    "active":true,
+    "process_name":"Testing Process1",
+    "subprocess_name":"Testing Sub Process1"
+}
+{
+    "operation":"update",
+    "active":true,
+    "process_name":"Testing Process1",
+    "subprocess_name":"Testing Sub Process1"
+}
+response:
+{
+    "message": "sub_process_added",
+    "success": true
+}
+{
+    "message": "already_exist",
+    "success": false
+}
+
+http://localhost:8081/ProcessManager/webapi/org/delete_sub_process
+request:
+{
+    "subprocess_id": 14,
+    "subprocess_name": "Testing Sub Process2"
+}
+
+response:
+{
+    "msg": "subprocess_deleted",
+    "success": true
+}
+
+http://localhost:8081/ProcessManager/webapi/org/add_skills
+request:
+{
+   "operation":"add",
+   "skill_name":"Test Skill1",
+   "active":true
+}
+{
+   "operation":"update",
+   "skill_name":"Test Skill1",
+   "active":true
+}
+response:
+{
+    "message": "skill_added",
+    "success": true
+}
+{
+    "message": "already_exist",
+    "success": false
+}
+{
+    "message": "skill_name_not_exist",
+    "success": false
+}
+
+http://localhost:8081/ProcessManager/webapi/org/delete_skills
+request:
+{
+	"skill_id":4
+}
+
+response:
+{
+    "msg": "skill_deleted",
+    "success": true
+}
+{
+    "msg": "skill_not_exist",
+    "success": false
+}
+
+http://localhost:8081/ProcessManager/webapi/org/add_tools
+request:
+{
+    "operation":"add",
+    "sub_process":"Testing Sub Process1",
+    "active":true,
+    "tool_name":"Testing Tool"
+}
+{
+    "operation":"update",
+    "sub_process":"Testing Sub Process1",
+    "active":true,
+    "tool_name":"Testing Tool"
+}
+response:
+{
+    "message": "tool_added",
+}
+
+
+http://localhost:8081/ProcessManager/webapi/org/delete_tools
+request:
+{
+    "tool_id":12
+}
+response:
+{
+    "msg": "tool_deleted",
+    "success": true
+}
+
+http://localhost:8081/ProcessManager/webapi/sheets/deleteSheet
+request:
+{
+    "sheet_id":24,
+    "file_name":"12345678904"
+}
+response:
+{
+    "msg": "sheet_deleted",
+    "success": true
+}
+{
+    "msg": "sheet_not_exist",
+    "success": false
+}
+
+
+http://localhost:8081/ProcessManager/webapi/sheets/addSheetProcess
+request:
+{
+    "file_name":"m11",
+    "process_name":"Chain Making"
+}
+response:
+{
+    "msg": "sheet_process_added",
+    "success": true
+}
+{
+    "msg": "process_or_sheet_not_exist",
+    "success": false
+}
+
+http://localhost:8081/ProcessManager/webapi/sheets/deleteSheetProcess
+request:
+{
+    "sheet_process_id":"2"
+}
+response:
+{
+    "msg": "sheet_process_deleted",
+    "success": true
+}
+{
+    "msg": "sheet_process_not_exist",
+    "success": false
+}
+
+http://localhost:8081/ProcessManager/webapi/sheets/deleteStep
+request:
+{
+    "step_id":4
+}
+
+response:
+{
+    "msg": "step_deleted",
+    "success": true
+}
+{
+    "msg": "step_not_exist",
+    "success": false
+}
+
+
+http://localhost:8088/ProcessManager/webapi/sheets/add_sheets
+request:
+{
+  "operation": "update",
+  "file_name": "Sheet_3",
+  "version": "1.3",
+  "department": "Engineering",
+  "design_no": "DES1234",
+  "floor": "3",
+  "last_updated_by": "admin"
+}
+
+{
+  "operation": "add",
+  "file_name": "Sheet_3",
+  "version": "1.3",
+  "date": "18-01-2025 11:00:00",
+  "department": "Engineering",
+  "design_no": "DES1234",
+  "floor": "3",
+  "last_updated_by": "admin"
+}
+response:
+{
+    "msg": "file_name_already_exist",
+    "success": false
+}
+{
+    "msg": "sheet_updated",
+    "success": true
+}
+{
+    "msg": "file_name_not_exist",
+    "success": false
+}
+{
+    "msg": "sheet_added",
+    "success": true
+}
+
+
+
+
+http://localhost:8081/ProcessManager/webapi/sheets/addStep
+request:
+{
+    "operation": "add",
+    "file_name": "Sheet1",
+    "process_name": "Cutting",
+    "subprocess_name": "Precision Cutting",
+    "step_number": 1,
+    "tool_name": "Cutter",
+    "tool_spec": "Standard",
+    "special_instruction": "Handle with care",
+    "skill": "Expert",
+    "time_minutes": 10,
+    "image_url": "https://example.com/step1.png",
+    "sheet_process_id": 5
+}
+{
+    "operation": "update",
+    "step_id": 12,   // here in update step_id se sent
+    "file_name": "Sheet1",
+    "process_name": "Cutting",
+    "subprocess_name": "Precision Cutting",
+    "step_number": 2,
+    "tool_name": "Advanced Cutter",
+    "tool_spec": "Precision",
+    "special_instruction": "Use carefully",
+    "skill": "Advanced",
+    "time_minutes": 15,
+    "image_url": "https://example.com/step2.png",
+    "sheet_process_id": 5
+}
+
+response:
+    {
+        "success": true,
+        "msg": "step_added"
+    }
+    {
+        "success": true,
+        "msg": "step_updated"
+    }
+    {
+        "success": false,
+        "msg": "invalid_operation"
+    }
+    {
+        "success": false,
+        "msg": "step_id_not_exist"
+    }
+    {
+        "success": false,
+        "msg": "failed"
+    }
+    {
+        "success": false,
+        "msg": "some exception"
+    }
+
+ProcessManager/webapi/sheets/generateExcel
+{
+ "sheet_id":12   
+}

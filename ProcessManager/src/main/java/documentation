@@ -1,0 +1,154 @@
+Modules Overview
+1. home.jsp
+
+    Purpose: The entry point for the application. It assembles the entire layout by including reusable components like sidebar.jsp, main-content.jsp, and modal.jsp.
+    Who calls it: The browser loads this page.
+    What it includes:
+        CSS for styling components.
+        JavaScript for handling interactions.
+        Components (sidebar, main content, modal).
+
+2. sidebar.jsp
+
+    Purpose: Displays the menu and recent sheets section on the left.
+    Who calls it: Included by home.jsp.
+    Key Elements:
+        Buttons:
+            Add New Sheet: Calls showModal('add') when clicked.
+            Open Existing Sheet: Calls showModal('open') when clicked.
+            Recent Sheets: Toggles visibility of recent sheets with toggleRecentSheets().
+        Recent Sheets:
+            Each sheet (e.g., Sheet 1, Sheet 2) calls showSheetDetails(sheetName) when clicked, passing the sheet name as input.
+
+3. main-content.jsp
+
+    Purpose: Displays the dynamic content, such as sheet details, in the right-hand area.
+    Who calls it: Included by home.jsp.
+    Key Element:
+        #sheet-details: A container for dynamically updating content when a sheet is selected from the sidebar.
+
+4. modal.jsp
+
+    Purpose: Displays a modal dialog box for "Add New Sheet" or "Open Existing Sheet."
+    Who calls it: Included by home.jsp.
+    Key Elements:
+        Modal Title and Body: The modal updates dynamically based on whether it’s for adding or opening a sheet.
+        Save and Cancel Buttons:
+            Save: Calls saveChanges() to save data.
+            Cancel: Calls closeModal() to hide the modal.
+
+5. CSS Files
+
+    layout.css: Styles for the overall layout of the app (e.g., flexbox container).
+    sidebar.css: Styles for the sidebar (e.g., width, background).
+    main-content.css: Styles for the main content area (e.g., padding, scroll behavior).
+    modal.css: Styles for the modal (e.g., fixed position, responsive design).
+
+6. JavaScript Files
+sidebar.js
+
+    Purpose: Handles interactions in the sidebar.
+    Functions:
+        toggleRecentSheets(): Toggles the visibility of the recent sheets section.
+            Input: None.
+            Output: Changes the display style of the #recent-sheets element.
+
+main.js
+
+    Purpose: Handles dynamic updates to the main content.
+    Functions:
+        showSheetDetails(sheetName):
+            Input: The name of the sheet clicked (e.g., "Sheet 1").
+            Output: Updates the #sheet-details container with relevant details.
+        Mock data is used for sheet details (can be replaced with server data).
+
+modal.js
+
+    Purpose: Manages modal interactions.
+    Functions:
+        showModal(type):
+            Input: "add" or "open".
+            Output: Updates the modal title and shows the modal.
+        closeModal():
+            Input: None.
+            Output: Hides the modal by removing the .show class.
+        saveChanges():
+            Input: None.
+            Output: Displays a success alert and closes the modal.
+
+Call Hierarchy
+
+    Browser loads home.jsp:
+        Includes:
+            sidebar.jsp
+            main-content.jsp
+            modal.jsp
+        Loads layout.css, sidebar.css, main-content.css, and modal.css.
+        Loads sidebar.js, main.js, and modal.js.
+
+    User clicks a button in the sidebar:
+        Add New Sheet: Calls showModal('add') (defined in modal.js).
+        Open Existing Sheet: Calls showModal('open') (defined in modal.js).
+        Recent Sheets Button: Calls toggleRecentSheets() (defined in sidebar.js).
+        Sheet Clicked: Calls showSheetDetails(sheetName) (defined in main.js).
+
+    Modal interactions:
+        Save Changes: Calls saveChanges() (defined in modal.js).
+        Cancel Button: Calls closeModal() (defined in modal.js).
+
+    Main content updates:
+        When a recent sheet is clicked, showSheetDetails(sheetName) dynamically updates the #sheet-details container.
+
+Input and Output Expectations
+Function	Input	Output
+showModal(type)	"add" or "open"	Updates the modal title and shows the modal.
+closeModal()	None	Hides the modal.
+saveChanges()	None	Displays a success alert and closes the modal.
+toggleRecentSheets()	None	Toggles the display style of the #recent-sheets section.
+showSheetDetails()	"Sheet 1", "Sheet 2", etc.	Updates the #sheet-details container with dynamic details for the selected sheet.
+Flow Diagram (Simplified)
+
+    Page Load: home.jsp
+        Includes components: Sidebar → Main Content → Modal.
+        Loads CSS and JavaScript.
+
+    Sidebar Button Actions:
+        Add/Open Sheet → showModal(type) → Modal opens.
+        Recent Sheets → toggleRecentSheets() → Expands/Collapses sheet list.
+        Sheet Clicked → showSheetDetails(sheetName) → Updates main content.
+
+    Modal Interactions:
+        Save Changes → saveChanges() → Alerts success and closes
+
+        modal.
+        Cancel → closeModal() → Hides modal.
+		
+		
+		
+webapp 
+   home.jsp
+   index.jsp
+   login.jsp
+   main-page.jsp
+   test.jsp
+   
+   components
+		main-content.jsp
+		modal.jsp
+		new-sheet.jsp
+		sidebar.jsp
+	css
+		layout.css
+		login.css
+		main-content.css
+		modal.css
+		new-sheet.css
+		sidebar.css
+	js
+		login.js
+		main.js
+		modal.js
+		new-sheet.js
+		sidebar.js
+	res
+		background.jpg
